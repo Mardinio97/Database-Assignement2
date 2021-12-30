@@ -56,7 +56,7 @@ def InsertCommentToDatabase(cursor, data):
         cursor.execute("INSERT IGNORE INTO reddit3.Comment VALUES (%s,%s,%s,%s,%s,%s,%s,%s);",
                        (str(data[ID]), str(data[AUTHOR]), str(data[SCORE]), str(data[BODY]),
                         str(data[SUBREDDIT_ID]), str(data[PARENT_ID]),
-                        datetime.datetime.fromtimestamp(data[CREATED_UTC]),
+                        datetime.datetime.fromtimestamp(int(data[CREATED_UTC])),
                         str(data[LINK_ID])))
         db.commit()
         print("Comment Record inserted successfully ")
